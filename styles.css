@@ -1,0 +1,16 @@
+.main-cont {
+  max-width: 540px;
+}
+
+.pvm {
+  font-weight: 200;
+}
+
+.total-price {
+  background-color: rgb(234, 234, 232);
+  padding: 0.8rem;
+}
+
+#price:disabled {
+  background-color: #fff;
+}
