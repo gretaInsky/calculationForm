@@ -1,6 +1,16 @@
 .main-cont {
   max-width: 540px;
+  font-family: "EB Garamond", serif;
+  font-size: 1.2rem;
 }
+
+input,
+select {
+  font-size: 1.2rem !important;
+}
+/* .form-select {
+  font-size: 1.2rem !important;
+} */
 
 .pvm {
   font-weight: 200;

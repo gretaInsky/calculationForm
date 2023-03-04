@@ -10,53 +10,101 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
     <title>calculationForm</title>
   </head>
   <body>
     <div class="container main-cont mt-5">
       <div class="row g-3 align-items-center">
-        <div class="col-5">
-          <label for="fasaduRastas" class="col-form-label">Fasadų raštas</label>
+        <div class="col-12 col-sm-5">
+          <label for="type" class="col-form-label">Fasadų raštas</label>
         </div>
-        <div class="col-7">
-          <input type="text" id="fasaduRastas" class="form-control" />
+        <div class="col-12 col-sm-7">
+          <select
+            class="form-select"
+            id="type"
+            aria-label="Default select example"
+            onchange="onTypeChange()"
+          >
+            <option disabled selected value="null">išsirinkti..</option>
+            <option value="elegancija6">Elegancija 6</option>
+            <option value="elegancija4">Elegancija 4</option>
+            <option value="elegancija3">Elegancija 3</option>
+            <option value="elegancija2,5">Elegancija 2,5</option>
+            <option value="piramides">Piramidės</option>
+            <option value="daimond">Diamond</option>
+            <option value="kvadratas">Kvadratas</option>
+            <option value="modernLines">Modern lines</option>
+            <option value="illusionCube">Illusion cube</option>
+            <option value="oakLines">Oak lines</option>
+            <option value="oakGeometry">Oak geometry</option>
+          </select>
         </div>
-        <div class="col-5">
-          <label for="medziaga" class="col-form-label">Medžiaga</label>
+        <div class="col-12 col-sm-5">
+          <label for="material" class="col-form-label">Medžiaga</label>
         </div>
-        <div class="col-7">
-          <input type="text" id="medziaga" class="form-control" />
+        <div class="col-12 col-sm-7">
+          <select
+            class="form-select"
+            id="material"
+            aria-label="Default select example"
+            onchange="calculateResult()"
+          >
+            <option value="null">jokia</option>
+          </select>
         </div>
-        <div class="col-5">
-          <label for="apdirbimoMetodas" class="col-form-label"
+        <div class="col-12 col-sm-5">
+          <label for="processingMethod" class="col-form-label"
             >Apdirbimo metodas</label
           >
         </div>
-        <div class="col-7">
-          <input type="text" id="apdirbimoMetodas" class="form-control" />
+        <div class="col-12 col-sm-7">
+          <select
+            class="form-select"
+            id="processingMethod"
+            aria-label="Default select example"
+            onchange="calculateResult()"
+          >
+            <option value="null">joks</option>
+          </select>
         </div>
-        <div class="col-5">
+        <div class="col-12 col-sm-5">
           <label for="ilgis" class="col-form-label">Ilgis mm</label>
         </div>
-        <div class="col-7">
-          <input type="number" id="ilgis" class="form-control" />
+        <div class="col-12 col-sm-7">
+          <input
+            type="number"
+            id="length"
+            class="form-control"
+            oninput="calculateResult()"
+          />
         </div>
-        <div class="col-5">
+        <div class="col-12 col-sm-5">
           <label for="plotis" class="col-form-label">Plotis mm</label>
         </div>
-        <div class="col-7">
-          <input type="number" id="plotis" class="form-control" />
+        <div class="col-12 col-sm-7">
+          <input
+            type="number"
+            id="width"
+            class="form-control"
+            oninput="calculateResult()"
+          />
         </div>
 
         <div class="col-12 total-price">
           <div class="row">
-            <div class="col-7">
+            <div class="col-12 col-sm-7">
               <label for="price" class="col-form-label"
                 >Kaina € <span class="pvm">(PVM įskaičiuotas)</span></label
               >
             </div>
-            <div class="col-5">
+            <div class="col-12 col-sm-5">
               <input
                 type="number"
                 id="price"
@@ -69,6 +117,7 @@
         </div>
       </div>
     </div>
+    <script src="./index.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
       integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
