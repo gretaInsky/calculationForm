@@ -8,12 +8,24 @@ let prevType = null;
 
 const onTypeChange = () => {
   const defaultMaterialOption = document.createElement("option");
-  defaultMaterialOption.text = "jokia";
+  defaultMaterialOption.text = "išsirinkti..";
   defaultMaterialOption.value = "null";
+  defaultMaterialOption.disabled = true;
+  defaultMaterialOption.selected = true;
 
-  const defaultProcessinglOption = document.createElement("option");
-  defaultProcessinglOption.text = "joks";
-  defaultProcessinglOption.value = "null";
+  const defaultProcessingOption = document.createElement("option");
+  defaultProcessingOption.text = "išsirinkti..";
+  defaultProcessingOption.value = "null";
+  defaultProcessingOption.disabled = true;
+  defaultProcessingOption.selected = true;
+
+  const noneMaterialOption = document.createElement("option");
+  noneMaterialOption.text = "be medžiagos (savo)";
+  noneMaterialOption.value = "null";
+
+  const noneProcessinglOption = document.createElement("option");
+  noneProcessinglOption.text = "be apdirbimo";
+  noneProcessinglOption.value = "null";
 
   switch (typeSelect.value) {
     case "oakLines":
@@ -26,6 +38,7 @@ const onTypeChange = () => {
         blbMaterialOption.value = "blb";
 
         materialSelect.add(defaultMaterialOption);
+        materialSelect.add(noneMaterialOption);
         materialSelect.add(blbMaterialOption);
 
         // set processing method options
@@ -38,7 +51,8 @@ const onTypeChange = () => {
         blbStainingOption.text = "Beicavimas/lakavimas";
         blbStainingOption.value = "blbStaining";
 
-        processingMethodSelect.add(defaultProcessinglOption);
+        processingMethodSelect.add(defaultProcessingOption);
+        processingMethodSelect.add(noneProcessinglOption);
         processingMethodSelect.add(blbOilingOption);
         processingMethodSelect.add(blbStainingOption);
       }
@@ -58,6 +72,7 @@ const onTypeChange = () => {
         mdfOption.value = "mdf";
 
         materialSelect.add(defaultMaterialOption);
+        materialSelect.add(noneMaterialOption);
         materialSelect.add(mdfOption);
 
         // set processing method options
@@ -66,7 +81,8 @@ const onTypeChange = () => {
         mdfStainingOption.text = "MDF dažymas 20% MAT";
         mdfStainingOption.value = "mdfStaining";
 
-        processingMethodSelect.add(defaultProcessinglOption);
+        processingMethodSelect.add(defaultProcessingOption);
+        processingMethodSelect.add(noneProcessinglOption);
         processingMethodSelect.add(mdfStainingOption);
       }
 
