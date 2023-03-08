@@ -28,9 +28,9 @@ const onTypeChange = () => {
   noneProcessinglOption.value = "null";
 
   switch (typeSelect.value) {
-    case "oakLines":
-    case "oakGeometry":
-      if (prevType !== "oakLines" && prevType !== "oakGeometry") {
+    case "oakVeneerLines":
+    case "oakVeneerArt":
+      if (prevType !== "oakVeneerLines" && prevType !== "oakVeneerArt") {
         // set material options
         materialSelect.innerHTML = null;
         const blbMaterialOption = document.createElement("option");
@@ -62,8 +62,8 @@ const onTypeChange = () => {
     default:
       if (
         prevType === null ||
-        prevType === "oakLines" ||
-        prevType === "oakGeometry"
+        prevType === "oakVeneerLines" ||
+        prevType === "oakVeneerArt"
       ) {
         // set material options
         materialSelect.innerHTML = null;
@@ -106,53 +106,59 @@ const calculateResult = () => {
 
   let area = (+lengthInput.value / 1000) * (+widthInput.value / 1000);
   switch (typeSelect.value) {
-    case "elegancija6":
+    case "elegantLines6":
       materialPrice = 10;
       millingCost = 12;
-      processingCost = 50;
+      processingCost = 65;
       break;
-    case "elegancija4":
+    case "elegantLines4":
       materialPrice = 10;
       millingCost = 15;
-      processingCost = 50;
+      processingCost = 65;
       break;
-    case "elegancija3":
+    case "elegantLines3":
       materialPrice = 10;
       millingCost = 16;
-      processingCost = 50;
+      processingCost = 65;
       break;
-    case "elegancija2,5":
+    case "elegantLines25":
       materialPrice = 10;
       millingCost = 17;
-      processingCost = 50;
+      processingCost = 65;
       break;
-    case "piramides":
+    case "graphicPyramids":
       materialPrice = 18;
       millingCost = 33;
-      processingCost = 60;
+      processingCost = 75;
       break;
-    case "daimond":
+    case "unrealDaimond":
       materialPrice = 18;
       millingCost = 35;
-      processingCost = 60;
+      processingCost = 75;
       break;
-    case "kvadratas":
-    case "modernLines":
+    case "contourSquares":
+    case "classyLines":
       materialPrice = 10;
       millingCost = 38;
-      processingCost = 50;
+      processingCost = 65;
       break;
-    case "illusionCube":
+    case "jazzyCube":
       materialPrice = 10;
-      millingCost = 60;
-      processingCost = 50;
+      millingCost = 48;
+      processingCost = 65;
       break;
-    case "oakLines":
-    case "oakGeometry":
+    case "oakVeneerLines":
       materialPrice = 30;
-      millingCost = 54;
+      millingCost = 38;
       if (processingMethodSelect.value === "oiling") processingCost = 12;
-      if (processingMethodSelect.value === "blbStaining") processingCost = 30;
+      if (processingMethodSelect.value === "blbStaining") processingCost = 45;
+      break;
+    case "oakVeneerArt":
+      materialPrice = 30;
+      millingCost = 42;
+      if (processingMethodSelect.value === "oiling") processingCost = 12;
+      if (processingMethodSelect.value === "blbStaining") processingCost = 45;
+
       break;
     default:
       break;
