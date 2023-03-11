@@ -24,7 +24,7 @@
     <div class="container main-cont mt-5">
       <div class="row g-3 align-items-center">
         <div class="col-12 col-sm-5">
-          <label for="type" class="col-form-label">Fasadų raštas</label>
+          <label for="type" class="col-form-label">Facade pattern</label>
         </div>
         <div class="col-12 col-sm-7">
           <select
@@ -33,7 +33,7 @@
             aria-label="Default select example"
             onchange="onTypeChange()"
           >
-            <option disabled selected value="null">išsirinkti..</option>
+            <option disabled selected value="null">choose..</option>
             <option value="elegantLines6">Elegant lines 60mm</option>
             <option value="elegantLines4">Elegant lines 40mm</option>
             <option value="elegantLines3">Elegant lines 30mm</option>
@@ -48,7 +48,7 @@
           </select>
         </div>
         <div class="col-12 col-sm-5">
-          <label for="material" class="col-form-label">Medžiaga</label>
+          <label for="material" class="col-form-label">Material</label>
         </div>
         <div class="col-12 col-sm-7">
           <select
@@ -57,12 +57,12 @@
             aria-label="Default select example"
             onchange="calculateResult()"
           >
-            <option disabled selected value="null">išsirinkti..</option>
+            <option disabled selected value="null">choose..</option>
           </select>
         </div>
         <div class="col-12 col-sm-5">
           <label for="processingMethod" class="col-form-label"
-            >Apdirbimo metodas</label
+            >Processing method</label
           >
         </div>
         <div class="col-12 col-sm-7">
@@ -72,11 +72,11 @@
             aria-label="Default select example"
             onchange="calculateResult()"
           >
-            <option disabled selected value="null">išsirinkti..</option>
+            <option disabled selected value="null">choose..</option>
           </select>
         </div>
         <div class="col-12 col-sm-5">
-          <label for="length" class="col-form-label">Ilgis mm</label>
+          <label for="ilgis" class="col-form-label">Length mm</label>
         </div>
         <div class="col-12 col-sm-7">
           <input
@@ -87,7 +87,7 @@
           />
         </div>
         <div class="col-12 col-sm-5">
-          <label for="width" class="col-form-label">Plotis mm</label>
+          <label for="width" class="col-form-label">Width mm</label>
         </div>
         <div class="col-12 col-sm-7">
           <input
@@ -102,7 +102,7 @@
           <div class="row">
             <div class="col-12 col-sm-7">
               <label for="price" class="col-form-label"
-                >Kaina € <span class="pvm">(PVM įskaičiuotas)</span></label
+                >Price € <span class="pvm">(VAT included)</span></label
               >
             </div>
             <div class="col-12 col-sm-5">
