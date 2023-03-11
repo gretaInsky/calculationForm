@@ -6,51 +6,86 @@ const widthInput = document.getElementById("width");
 const priceInput = document.getElementById("price");
 let prevType = null;
 
-const onTypeChange = () => {
+const onTypeChange = (lang) => {
   const defaultMaterialOption = document.createElement("option");
-  defaultMaterialOption.text = "išsirinkti..";
-  defaultMaterialOption.value = "null";
-  defaultMaterialOption.disabled = true;
-  defaultMaterialOption.selected = true;
-
   const defaultProcessingOption = document.createElement("option");
-  defaultProcessingOption.text = "išsirinkti..";
+  const noneMaterialOption = document.createElement("option");
+  const noneProcessinglOption = document.createElement("option");
+
+  defaultMaterialOption.value = "null";
   defaultProcessingOption.value = "null";
+  noneMaterialOption.value = "null";
+  noneProcessinglOption.value = "null";
+
+  defaultMaterialOption.disabled = true;
   defaultProcessingOption.disabled = true;
+
+  defaultMaterialOption.selected = true;
   defaultProcessingOption.selected = true;
 
-  const noneMaterialOption = document.createElement("option");
-  noneMaterialOption.text = "be medžiagos (savo)";
-  noneMaterialOption.value = "null";
+  //set text language
+  switch (lang) {
+    case "lt":
+      defaultMaterialOption.text = "išsirinkti..";
+      defaultProcessingOption.text = "išsirinkti..";
+      noneMaterialOption.text = "be medžiagos (savo)";
+      noneProcessinglOption.text = "be apdirbimo";
+      break;
 
-  const noneProcessinglOption = document.createElement("option");
-  noneProcessinglOption.text = "be apdirbimo";
-  noneProcessinglOption.value = "null";
+    case "en":
+      defaultMaterialOption.text = "choose..";
+      defaultProcessingOption.text = "choose..";
+      noneMaterialOption.text = "without material (own)";
+      noneProcessinglOption.text = "without processing";
+      break;
+
+    default:
+      defaultMaterialOption.text = "išsirinkti..";
+      defaultProcessingOption.text = "išsirinkti..";
+      noneMaterialOption.text = "be medžiagos (savo)";
+      noneProcessinglOption.text = "be apdirbimo";
+      break;
+  }
 
   switch (typeSelect.value) {
     case "oakVeneerLines":
     case "oakVeneerArt":
       if (prevType !== "oakVeneerLines" && prevType !== "oakVeneerArt") {
-        // set material options
         materialSelect.innerHTML = null;
+        processingMethodSelect.innerHTML = null;
+
         const blbMaterialOption = document.createElement("option");
-        blbMaterialOption.text = "BLB";
+        const blbOilingOption = document.createElement("option");
+        const blbStainingOption = document.createElement("option");
+
         blbMaterialOption.value = "blb";
+        blbOilingOption.value = "oiling";
+        blbStainingOption.value = "blbStaining";
+
+        //set text language
+        switch (lang) {
+          case "lt":
+            blbMaterialOption.text = "BLB";
+            blbOilingOption.text = "Alyvavimas";
+            blbStainingOption.text = "Beicavimas/lakavimas";
+            break;
+
+          case "en":
+            blbMaterialOption.text = "BLB";
+            blbOilingOption.text = "Oiling";
+            blbStainingOption.text = "Staining/varnishing";
+            break;
+
+          default:
+            blbMaterialOption.text = "BLB";
+            blbOilingOption.text = "Alyvavimas";
+            blbStainingOption.text = "Beicavimas/lakavimas";
+            break;
+        }
 
         materialSelect.add(defaultMaterialOption);
         materialSelect.add(noneMaterialOption);
         materialSelect.add(blbMaterialOption);
-
-        // set processing method options
-        processingMethodSelect.innerHTML = null;
-        const blbOilingOption = document.createElement("option");
-        blbOilingOption.text = "Alyvavimas";
-        blbOilingOption.value = "oiling";
-
-        const blbStainingOption = document.createElement("option");
-        blbStainingOption.text = "Beicavimas/lakavimas";
-        blbStainingOption.value = "blbStaining";
-
         processingMethodSelect.add(defaultProcessingOption);
         processingMethodSelect.add(noneProcessinglOption);
         processingMethodSelect.add(blbOilingOption);
@@ -65,21 +100,33 @@ const onTypeChange = () => {
         prevType === "oakVeneerLines" ||
         prevType === "oakVeneerArt"
       ) {
-        // set material options
         materialSelect.innerHTML = null;
+        processingMethodSelect.innerHTML = null;
+
         const mdfOption = document.createElement("option");
-        mdfOption.text = "MDF";
+        const mdfStainingOption = document.createElement("option");
+
         mdfOption.value = "mdf";
+        mdfStainingOption.value = "mdfStaining";
+
+        //set text language
+        switch (lang) {
+          case "lt":
+            mdfOption.text = "MDF";
+            mdfStainingOption.text = "MDF dažymas 20% MAT";
+            break;
+
+          case "en":
+            mdfOption.text = "MDF";
+            mdfStainingOption.text = "MDF dyeing 20% MAT";
+            break;
+          default:
+            break;
+        }
 
         materialSelect.add(defaultMaterialOption);
         materialSelect.add(noneMaterialOption);
         materialSelect.add(mdfOption);
-
-        // set processing method options
-        processingMethodSelect.innerHTML = null;
-        const mdfStainingOption = document.createElement("option");
-        mdfStainingOption.text = "MDF dažymas 20% MAT";
-        mdfStainingOption.value = "mdfStaining";
 
         processingMethodSelect.add(defaultProcessingOption);
         processingMethodSelect.add(noneProcessinglOption);

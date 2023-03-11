@@ -1,7 +1,7 @@
 .main-cont {
   max-width: 540px;
   font-family: "Helvetica 45 Light", sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.2rem !important;
   font-weight: 300;
 }
 
